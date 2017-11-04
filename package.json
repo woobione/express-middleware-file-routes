@@ -1,0 +1,31 @@
+{
+    "name": "express-middleware-file-routes",
+    "version": "0.0.1",
+    "description": "A lightning fast middleware for express to transform a folder structure into an API",
+    "license": "ISC",
+    "keywords": [
+        "express",
+        "middleware",
+        "file",
+        "load",
+        "require",
+        "route",
+        "router"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/woobione/express-middleware-file-routes.git"
+    },
+    "main": "./dist",
+    "scripts": {
+        "build": "babel src --out-dir dist",
+        "prepare": "npm run build"
+    },
+    "dependencies": {
+        "express": "latest"
+    },
+    "devDependencies": {
+        "babel-cli": "^6.26.0",
+        "babel-preset-env": "^1.6.1"
+    }
+}
