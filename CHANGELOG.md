@@ -1,3 +1,6 @@
+### 0.0.4
+- Change to MIT license
+
 ### 0.0.3
 - Add license file
 
