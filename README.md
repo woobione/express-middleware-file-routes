@@ -4,6 +4,7 @@ A lightning fast middleware for [express](https://www.npmjs.com/package/express)
 [![NPM Version][npm-image]][npm-url]
 [![NPM Downloads][downloads-image]][downloads-url]
 [![Github Issues][issues-image]][issues-url]
+[![License][license-image]][license-url]
 
 ## How does it work?
 By looking in a folder (default: **/routes**) - API routes are created based on the file structure.
@@ -117,9 +118,11 @@ app.use(fileBasedAPI({
 
 **defaultValue**: ```Returns status code 405 (method not supported)```
 
-[npm-image]: https://img.shields.io/npm/v/express-middleware-file-routes.svg
-[npm-url]: https://npmjs.org/package/express-middleware-file-routes
 [downloads-image]: https://img.shields.io/npm/dt/express-middleware-file-routes.svg
 [downloads-url]: https://npmjs.org/package/express-middleware-file-routes
-[issues-image]: https://img.shields.io/github/issues-raw/badges/express-middleware-file-routes.svg
+[issues-image]: https://img.shields.io/github/issues-raw/woobione/express-middleware-file-routes.svg
 [issues-url]: https://github.com/woobione/express-middleware-file-routes
+[license-image]: https://img.shields.io/github/license/woobione/express-middleware-file-routes.svg
+[license-url]: http://opensource.org/licenses/ISC
+[npm-image]: https://img.shields.io/npm/v/express-middleware-file-routes.svg
+[npm-url]: https://npmjs.org/package/express-middleware-file-routes
