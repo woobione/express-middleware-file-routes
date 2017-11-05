@@ -1,6 +1,6 @@
 {
     "name": "express-middleware-file-routes",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "A lightning fast middleware for express to transform a folder structure into an API",
     "license": "ISC",
     "keywords": [
