@@ -110,6 +110,9 @@ class FileRouter {
         // change (parameter) structure to :parameter
         route = route.split('(').join(':').split(')').join('');
 
+        // normalize slashes to / on all platforms
+        route = route.split(path.sep).join('/');
+
         return route;
     }
 
