@@ -1,3 +1,6 @@
+### 0.0.5
+- Fix slash problem on windows
+
 ### 0.0.4
 - Change to MIT license
 
