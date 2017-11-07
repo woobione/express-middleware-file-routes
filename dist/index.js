@@ -8,6 +8,9 @@ const { readdirSync: readDir, lstatSync: lstat, existsSync: exists } = require('
  * Default options
  */
 const _defaultOptions = {
+    beforeSetupRoute: (route, controller) => {
+        // use this hook to add custom logic before accessing route
+    },
     rootFile: 'index',
     routes: '/routes',
     unsupportedMethodHandler: (req, res) => {
@@ -28,7 +31,7 @@ const _getOptions = options => {
  * Helper function to see if a path is a file
  * @param {string} filePath 
  */
-const isFile = filePath => {
+const _isFile = filePath => {
     return lstat(filePath).isFile();
 };
 
@@ -49,9 +52,14 @@ class FileRouter {
             const route = this.pathToRoute(routePath, routesDirectory);
             const controller = require(routePath);
 
-            // add all found methods
+            // run before setup hook
+            this._options.beforeSetupRoute(route, controller);
+
+            // add all found http verbs
             Object.entries(controller).forEach(([method, handler]) => {
-                router[method](route, handler);
+                if (router[method]) {
+                    router[method](route, handler);
+                }
             });
 
             // gracefully handle unsupported methods
@@ -80,7 +88,7 @@ class FileRouter {
         return readDir(routesDirectory).reduce((paths, routePath) => {
             const absoluePath = path.join(routesDirectory, routePath);
 
-            if (isFile(absoluePath)) {
+            if (_isFile(absoluePath)) {
                 paths.push(absoluePath);
             } else {
                 paths.push.apply(paths, this.getRoutesAsPaths(absoluePath));
