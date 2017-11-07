@@ -47,7 +47,7 @@ class FileRouter {
             const route = this.pathToRoute(routePath, routesDirectory);
             const controller = require(routePath);
 
-            // add all found methods
+            // add all found http verbs
             Object.entries(controller).forEach(([method, handler]) => {
                 if (router[method]) {
                     router[method](route, handler);
