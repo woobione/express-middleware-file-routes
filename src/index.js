@@ -6,6 +6,9 @@ const { readdirSync: readDir, lstatSync: lstat, existsSync: exists } = require('
  * Default options
  */
 const _defaultOptions = {
+    beforeSetupRoute: (route, controller) => {
+        // use this hook to add custom logic before accessing route
+    },
     rootFile: 'index',
     routes: '/routes',
     unsupportedMethodHandler: (req, res) => {
@@ -46,6 +49,9 @@ class FileRouter {
         this.getRoutesAsPaths(routesDirectory).forEach((routePath) => {
             const route = this.pathToRoute(routePath, routesDirectory);
             const controller = require(routePath);
+
+            // run before setup hook
+            this._options.beforeSetupRoute(route, controller);
 
             // add all found http verbs
             Object.entries(controller).forEach(([method, handler]) => {
