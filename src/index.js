@@ -49,7 +49,9 @@ class FileRouter {
 
             // add all found methods
             Object.entries(controller).forEach(([method, handler]) => {
-                router[method](route, handler);
+                if (router[method]) {
+                    router[method](route, handler);
+                }
             });
 
             // gracefully handle unsupported methods
