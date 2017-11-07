@@ -90,6 +90,15 @@ app.use(fileBasedAPI({
 }));
 ```
 
+### beforeSetupRoute
+*(this hook will run before mounting each and every route found)*
+
+**optionName**: *beforeSetupRoute*
+
+**type**: ```callable(route, controller)```
+
+**defaultValue**: ```(void)```
+
 
 ### rootFile
 *(name of the file that defines the root state **/** of a folder - defaults to **index**(.js))*
@@ -100,6 +109,7 @@ app.use(fileBasedAPI({
 
 **defaultValue**: ```'index'```
 
+
 ### routes
 *(path to the directory where routes are located)*
 
@@ -109,6 +119,7 @@ app.use(fileBasedAPI({
 
 **defaultValue**: ```'/routes'```
 
+
 ### unsupportedMethodHandler
 *(fallback handler when no specific handler **POST|GET|..** is found on a route)*
 
@@ -117,6 +128,13 @@ app.use(fileBasedAPI({
 **type**: ```callable(req, res)```
 
 **defaultValue**: ```Returns status code 405 (method not supported)```
+
+
+## License
+Copyright (c) 2017 Anton Netterwall
+
+Available under the MIT license. See the LICENSE file for more info.
+
 
 [downloads-image]: https://img.shields.io/npm/dt/express-middleware-file-routes.svg
 [downloads-url]: https://npmjs.org/package/express-middleware-file-routes
