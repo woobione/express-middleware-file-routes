@@ -1,3 +1,6 @@
+### 0.1.1
+- Add .npmrc to disable package-lock.json file
+
 ### 0.1.0
 - Add new hook to options: beforeSetupRoute(route, controller)
 
