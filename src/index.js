@@ -26,7 +26,7 @@ const _getOptions = (options) => {
  * Helper function to see if a path is a file
  * @param {string} filePath 
  */
-const isFile = (filePath) => {
+const _isFile = (filePath) => {
     return lstat(filePath).isFile();
 }
 
@@ -80,7 +80,7 @@ class FileRouter {
         return readDir(routesDirectory).reduce((paths, routePath) => {
             const absoluePath = path.join(routesDirectory, routePath);
 
-            if (isFile(absoluePath)) {
+            if (_isFile(absoluePath)) {
                 paths.push(absoluePath);
             } else {
                 paths.push.apply(paths, this.getRoutesAsPaths(absoluePath));
