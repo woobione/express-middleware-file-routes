@@ -1,3 +1,6 @@
+### 0.2.0
+- Add new option: fileTypes: [] (default: ['js']) which sets what files are loaded as controllers
+
 ### 0.1.1
 - Add .npmrc to disable package-lock.json file
 
