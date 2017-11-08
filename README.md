@@ -15,6 +15,9 @@ A folder or a file would create the same structure like so:
 and
 ```/home/index.js -> /home```
 
+<sub>*(what type of files that are allowed to created controllers can be configured by the **fileTypes** option)*</sub>
+
+
 ## Get started
 ### Installation
 ```
