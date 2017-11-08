@@ -9,6 +9,7 @@ const _defaultOptions = {
     beforeSetupRoute: (route, controller) => {
         // use this hook to add custom logic before accessing route
     },
+    fileTypes: ['js'],
     rootFile: 'index',
     routes: '/routes',
     unsupportedMethodHandler: (req, res) => {
@@ -87,13 +88,24 @@ class FileRouter {
             const absoluePath = path.join(routesDirectory, routePath);
 
             if (_isFile(absoluePath)) {
-                paths.push(absoluePath);
+                if (this.isValidFileType(absoluePath)) {
+                    paths.push(absoluePath);
+                }
             } else {
                 paths.push.apply(paths, this.getRoutesAsPaths(absoluePath));
             }
 
             return paths;
         }, []);
+    }
+
+    /**
+     * Check if file matches any of the file types specified in option: fileTypes
+     * @param {string} filePath path to file
+     */
+    isValidFileType(filePath) {
+        const fileType = path.extname(filePath).replace('.', '');
+        return this._options.fileTypes.includes(fileType);
     }
 
     /**
