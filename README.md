@@ -100,12 +100,22 @@ app.use(fileBasedAPI({
 **defaultValue**: ```(void)```
 
 
+### fileTypes
+*(what type of files should be loaded as controllers)*
+
+**optionName**: *fileTypes*
+
+**type**: ```array[string]```
+
+**defaultValue**: ```['js']```
+
+
 ### rootFile
 *(name of the file that defines the root state **/** of a folder - defaults to **index**(.js))*
 
 **optionName**: *rootFile*
 
-**type**: ```{string}```
+**type**: ```string```
 
 **defaultValue**: ```'index'```
 
