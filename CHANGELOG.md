@@ -1,3 +1,6 @@
+### 0.2.1
+- Improve readme
+
 ### 0.2.0
 - Add new option: fileTypes: [] (default: ['js']) which sets what files are loaded as controllers
 
