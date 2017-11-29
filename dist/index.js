@@ -49,9 +49,18 @@ class FileRouter {
         const routesDirectory = this.resolve(routes);
         const router = this._router = express.Router();
 
-        this.getRoutesAsPaths(routesDirectory).forEach(routePath => {
+        // setup all routes
+        this.getRoutesAsPaths(routesDirectory).map(routePath => {
             const route = this.pathToRoute(routePath, routesDirectory);
             const controller = require(routePath);
+            const score = this.getRouteScore(route);
+
+            return { route, controller, score };
+        }).sort((routeA, routeB) => {
+            // sort routes based on their score
+            return routeA.score - routeB.score;
+        }).forEach(routeDefinition => {
+            const { route, controller } = routeDefinition;
 
             // run before setup hook
             this._options.beforeSetupRoute(route, controller);
@@ -99,6 +108,18 @@ class FileRouter {
 
             return paths;
         }, []);
+    }
+
+    /**
+     * Get prioritization score for route
+     * @param {string} route
+     * @return {int} route value
+     */
+    getRouteScore(route) {
+        const slashScore = (route.match(/\//g) || []).length + 1;
+        const parameterScore = (route.match(/:\w+/g) || []).length * -1;
+
+        return slashScore + parameterScore;
     }
 
     /**
