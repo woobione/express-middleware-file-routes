@@ -1,3 +1,6 @@
+### 0.3.1
+- Further improve sorting algorithm
+
 ### 0.3.0
 - Improve route prioritization algorithm
 - Add new method: getRouteScore(route)
