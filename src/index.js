@@ -56,7 +56,7 @@ class FileRouter {
             return { route, controller, score };
         }).sort((routeA, routeB) => {
             // sort routes based on their score
-            return routeA.score - routeB.score;
+            return routeB.score - routeA.score;
         }).forEach(routeDefinition => {
             const { route, controller } = routeDefinition;
 
