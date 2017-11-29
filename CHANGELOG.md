@@ -1,3 +1,8 @@
+### 0.3.0
+- Improve route prioritization algorithm
+- Add new method: getRouteScore(route)
+- Update readme
+
 ### 0.2.1
 - Improve readme
 
